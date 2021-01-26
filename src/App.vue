@@ -1,14 +1,36 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-      <router-link to="/create-new-todo">Create New</router-link>
-    </div>
+    <Navbar />
     <router-view/>
   </div>
 </template>
 
+<script>
+import Navbar from "./components/Navbar"
+export default {
+  components:{
+    Navbar,
+  }
+}
+</script>
+
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  font-family: 'Fraunces', serif;
+}
+body{
+  background:url("https://img.wallpapersafari.com/desktop/1920/1080/47/4/kWGX9a.jpg");
+  background-size: cover;
+  max-width:100vw;
+  height: 100vh;
+  margin: 0;
+
+}
+
 
 </style>
