@@ -1,25 +1,32 @@
 <template>
-<div class="todoList"> 
-    <form>
-      <div class="todo-list-container" >
+<div class="todoList">
+    <ul>
+      <li class="todo-list-container" >
         <div class="todo">
-          <input type="checkbox"  name="todo" value="">
-          <label for="todo">{{todoList.todo}}</label>
+          <!-- <input type="checkbox" v-model="todoItem.isDone"> -->
+          <!-- <span :class="{done: todoItem.isDone}">{{todoItem.todo}}</span> -->
+          <span>{{todoItem.todo}}</span>
         </div>
         <div class="sub-disc">
-          <p>Created by <span class="author">{{todoList.author}}</span></p> 
-          <time>{{todoList.time}}</time>
+          <p>Created by <span class="author">{{todoItem.author}}</span></p> 
+          <time >{{todoItem.time}}</time>
         </div>
-      </div>  
-      <button type="submit"></button> 
-    </form>       
+        <button  @click="removeTodoItem" class="remove-button">Done</button>
+      </li>        
+    </ul>         
 </div>
              
 </template>
 
 <script>
 export default {
- props:["todoList"]
+ props:["todoItem"],
+  methods:{
+   removeTodoItem(){
+       this.$store.commit('removeTodoItem',this.todoItem)
+    }   
+  },
+
 }
 </script>
 
@@ -36,9 +43,8 @@ export default {
 .todo{
     flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: 70%;
-    text-align: left;
-  
+    flex-basis: 65%;
+    text-align: left;  
 }
 .sub-disc{
     flex-grow: 0;
@@ -46,13 +52,23 @@ export default {
     flex-basis: 30%;
     text-align: left;
 }
+.remove-button{
+    align-self: center;
+    background: rgb(155, 155, 179);
+    color:white;
+    font-family: Verdana, sans-serif;    
+}
 .sub-disc >:first-child{
   margin: 0.5em 0;
 }
-label{
+.todo >span{
   font-size:1.5rem;
   margin-left:1rem;
 }
+/* .todo >span.done{
+  text-decoration:line-through;
+  color:rgb(105, 95, 95);
+} */
 .author{
   color:darkblue
 }
