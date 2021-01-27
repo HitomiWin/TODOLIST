@@ -9,25 +9,25 @@ export default new Vuex.Store({
       {
         todo:"Learn magic",
         author:"Harry Potter",
-        time:"1799/02/05 20:00",
+        time:new Date().toLocaleString(),
         
       },
       {
         todo:"Make up with Ron",
         author:"Hermione",
-        time:"1799/05/05  20:00",
+        time:new Date().toLocaleString(),
         
       },
       {
         todo:"Feed the dragon",
         author:"Hagrid",
-        time:"1799/05/05  20:00",
+        time:new Date().toLocaleString(),
         
       },
       {
         todo:"Practice chess",
         author:"Ron",
-        time:"1799/05/05 20:00",
+        time:new Date().toLocaleString(),
         
       },
     ]

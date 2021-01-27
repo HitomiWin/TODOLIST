@@ -11,11 +11,11 @@
           <p>Created by <span class="author">{{todoItem.author}}</span></p> 
           <time >{{todoItem.time}}</time>
         </div>
-        <button  @click="removeTodoItem" class="remove-button">Done</button>
+        <p @click="removeTodoItem" class="remove-button">X</p>
       </li>        
     </ul>         
 </div>
-             
+            
 </template>
 
 <script>
@@ -52,11 +52,15 @@ export default {
     flex-basis: 30%;
     text-align: left;
 }
-.remove-button{
+.remove-button {
+    font:bold;
     align-self: center;
-    background: rgb(155, 155, 179);
-    color:white;
+    /* background: rgb(155, 155, 179); */
+    color:darkred;
     font-family: Verdana, sans-serif;    
+}
+.remove-button:hover{
+  cursor:pointer;
 }
 .sub-disc >:first-child{
   margin: 0.5em 0;

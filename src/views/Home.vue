@@ -46,8 +46,6 @@ button{
   margin:1rem;
   padding:0.3rem;
   width:100px;
-
-
 }
 
 </style>
