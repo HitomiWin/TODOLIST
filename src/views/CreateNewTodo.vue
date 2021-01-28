@@ -17,24 +17,25 @@ export default {
       todoItem:{
       todo:"",
       author:"",
-      time: new Date().getFullYear() + "/" + new Date().getMonth()+1 +"/" + new Date().getDate(),
+      time:"",
       isDone:false      
       }
     }
   },
   methods:{
     addTodoItem(){  
-      
+      this.nowTime()
       this.$store.commit('addTodoItem',this.todoItem)
       this.$router.push('/')
     },
 
-    // nowTime(){
-    //     let now = new Date()
-    //     this.time = new Date().getFullYear() + "/" +new Date().getMonth() +"/" + new Date().getDate()+" "+ new Date().getHours()+":"+ new Date().getMinutes();
-    //     console.log(this.time)
-    //     // return this.time
-  //  },
+    nowTime(){
+        let now = new Date()
+        return this.todoItem.time = now.getFullYear() + "/" + now.getMonth()+1 +"/" + now.getDate()        
+   },
+    
+
+
   }
 }
 </script>

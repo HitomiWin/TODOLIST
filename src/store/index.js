@@ -9,29 +9,30 @@ export default new Vuex.Store({
       {
         todo:"Learn magic",
         author:"Harry Potter",
-        time:new Date().toLocaleString(),
-        isDone:true
+        time:"1788/01/28",
+        isDone:false
         
       },
       {
         todo:"Make up with Ron",
         author:"Hermione",
-        time:new Date().toLocaleString(),
-        isDone:false
+        time:"1788/01/28",
+        isDone:true
       },
       {
         todo:"Feed the dragon",
         author:"Hagrid",
-        time:new Date().toLocaleString(),
+        time:"1788/01/28",
         isDone:false
       },
       {
         todo:"Practice chess",
         author:"Ron",
-        time:new Date().toLocaleString(),
+        time:"1788/01/28",
         isDone:false
       },
-    ]
+    ],
+    
   },
   mutations: { 
     removeTodoItem(state, todoItem){ 
@@ -41,12 +42,21 @@ export default new Vuex.Store({
     addTodoItem(state, todoItem){
       state.todoList.unshift(todoItem)
     },
-    // isDoneToLastOfList:state=>{      
-    //   state.todoList.sort((a,b)=>{
-    //     return a.isDone>b.isDone; 
-    //   });          
-    // }
 
+    // srotList(state, todoItem){
+    //   state.todoList =state.todoList.sort(function(a,b){
+    //     return a.todoItem >b.todoItem
+    //   });
+     
+    // }
+  },
+  getters:{
+    doneTodos:state=>{
+      return state.todoList.filter(todoItem=>todoItem.isDone)
+    },
+    notDoneTodos:state=>{
+      return state.todoList.filter(todoItem=>!todoItem.isDone)
+    }
   },
 
   

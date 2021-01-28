@@ -2,7 +2,7 @@
   <div class="home">
     <h1>Preparing for battle</h1> 
     <!-- <div v-if="todoList.length>0"> -->
-    <TodoList v-for="(todoItem, i) in todoList" :key="i"  :todoItem="todoItem"/>
+    <TodoList v-for="(todoItem, i) in  sortList" :key="i"  :todoItem="todoItem"/>
     </div>    
   <!-- </div> -->
 </template>
@@ -14,13 +14,18 @@ export default {
   components:{
     TodoList
   },
+  
   computed:{
-    todoList(){
-    return this.$store.state.todoList
+    notDoneTodos(){
+    return this.$store.getters.notDoneTodos
+    },
+    doneTodos(){
+    return this.$store.getters.doneTodos
       },
-    // todoList(){
-    //   return this.$store.commit.isDoneToLastOfList
-    // }
+    sortList(){
+      return this.notDoneTodos.concat(this.doneTodos)
+    }
+    
   },
 
  

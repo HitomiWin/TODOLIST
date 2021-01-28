@@ -24,10 +24,8 @@ export default {
   methods:{
    removeTodoItem(){
        this.$store.commit('removeTodoItem',this.todoItem)
-    } ,
-   
-  },
-  
+    } ,  
+  },  
 
 }
 </script>
