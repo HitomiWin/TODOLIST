@@ -1,11 +1,11 @@
 <template>
   <div class="create-new-todo">
     <h1>Add New Todo</h1>
-    <form @submit.prevent="addTodoItem">
-        <label for="todo">What do you have to do?</label>
-        <input class="todo" v-model="todoItem.todo" type="text" name="todo" Value="">
-        <label for="author">Who created list ?</label>
-        <input class="author" v-model="todoItem.author" type="text" name="author" Value="">
+    <form  id="app" @submit.prevent="addTodoItem">
+      <label for="todo">Todo</label>
+      <input class="todo" id="todo" v-model="todoItem.todo" type="text" name="todo">   
+        <label for="author">Author</label>
+        <input id="author" class="author" v-model="todoItem.author" type="text" name="author">
         <button type="submit">Add</button>
     </form>
   </div>
@@ -15,29 +15,30 @@ export default {
   data(){
     return{
       todoItem:{
-      todo:"",
-      author:"",
-      time:"",
-      isDone:false      
+      todo:null,
+      author:null,
+      time:" ",   
       }
     }
   },
   methods:{
-    addTodoItem(){  
+    nowTime(){
+      let now = new Date()
+      return this.todoItem.time = now.getFullYear() + "/" + now.getMonth()+1 +"/" + now.getDate()        
+    },
+    addTodoItem(){
+      console.log(this.todoItem)
+      if (this.todoItem.todo===null || this.todoItem.author===null) {
+        alert("Please input both fields")
+        return
+        }
       this.nowTime()
       this.$store.commit('addTodoItem',this.todoItem)
       this.$router.push('/')
+      }
     },
-
-    nowTime(){
-        let now = new Date()
-        return this.todoItem.time = now.getFullYear() + "/" + now.getMonth()+1 +"/" + now.getDate()        
-   },
-    
-
-
   }
-}
+
 </script>
 
 <style scoped>

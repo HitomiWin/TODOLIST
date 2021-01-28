@@ -1,34 +1,33 @@
 <template>
   <div class="home">
     <h1>Preparing for battle</h1> 
-    <!-- <div v-if="todoList.length>0"> -->
-    <TodoList v-for="(todoItem, i) in  todoList" :key="i"  :todoItem="todoItem"/>
+    <div v-if="todoList.length > 0">
+      <TodoList v-for="(todoItem, i) in todoList" :key="i"  :todoItem="todoItem"/>
+    </div>
+    <div v-if="todoList.length > 0">
+      <DoneList v-for="(doneItem, i) in doneList" :key="'A'+ i"  :doneItem="doneItem"/>
     </div>    
-  <!-- </div> -->
+  </div>
 </template>
 <script>
 
 import TodoList from "../components/TodoList"
+import DoneList from "../components/DoneList"
 export default {
   name: 'Home',
   components:{
-    TodoList
+    TodoList,
+    DoneList
   },
   
   computed:{
-     todoList(){
-       return this.$store.state.todoList
-     }
-    // notDoneTodos(){
-    // return this.$store.getters.notDoneTodos
-    // },
-    // doneTodos(){
-    // return this.$store.getters.doneTodos
-    //   },
-    // sortList(){
-    //   return this.notDoneTodos.concat(this.doneTodos)
-    // }
-    
+    todoList(){
+      return this.$store.state.todoList
+     },  
+    doneList(){
+    return this.$store.state.doneList
+     },
+
   },
 
  
