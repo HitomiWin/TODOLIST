@@ -1,13 +1,14 @@
 <template>
 <div class="todoList">
     <ul>
-      <li class="todo-list-container" >
+      <li class="todo-list-container" @click="removeDone" >
         <div class="todo">
-          <input type="checkbox" v-model="todoItem.isDone" >
-          <span :class="{done: todoItem.isDone}">{{todoItem.todo}}</span>
-          <!-- <span>{{todoItem.todo}}</span> -->
+          <!-- <input type="checkbox" v-bind="removeDone" > -->
+          <!-- <span :class="{done: todoItem.isDone}">{{todoItem.todo}}</span> -->
+          <span>{{todoItem.todo}}</span>
         </div>
-        <div :class="{done: todoItem.isDone}" class="sub-disc">
+        <!-- <div :class="{done: todoItem.isDone}" class="sub-disc"> -->
+        <div class="sub-disc">
           <p>Created by <span class="author">{{todoItem.author}}</span></p> 
           <p class="time"><span>{{todoItem.time}}</span></p>
         </div>
@@ -25,7 +26,11 @@ export default {
    removeTodoItem(){
        this.$store.commit('removeTodoItem',this.todoItem)
     } ,  
-  },  
+ 
+    removeDone(){
+    this.$store.commit('removeDone',this.todoItem)
+    }
+  } 
 
 }
 </script>

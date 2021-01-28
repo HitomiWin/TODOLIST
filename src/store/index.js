@@ -10,26 +10,26 @@ export default new Vuex.Store({
         todo:"Learn magic",
         author:"Harry Potter",
         time:"1788/01/28",
-        isDone:false
+        // isDone:false
         
       },
       {
         todo:"Make up with Ron",
         author:"Hermione",
         time:"1788/01/28",
-        isDone:true
+        // isDone:true
       },
       {
         todo:"Feed the dragon",
         author:"Hagrid",
         time:"1788/01/28",
-        isDone:false
+        // isDone:false
       },
       {
         todo:"Practice chess",
         author:"Ron",
         time:"1788/01/28",
-        isDone:false
+        // isDone:false
       },
     ],
     
@@ -43,13 +43,14 @@ export default new Vuex.Store({
       state.todoList.unshift(todoItem)
     },
 
-    // srotList(state, todoItem){
-    //   state.todoList =state.todoList.sort(function(a,b){
-    //     return a.todoItem >b.todoItem
-    //   });
-     
-    // }
+    removeDone(state,todoItem){    
+         let i = state.todoList.indexOf(todoItem)
+         let doneItems = state.todoList.splice(i,1)
+         this.state.todoList.push(doneItems[0])
+         
+       }
   },
+
   getters:{
     doneTodos:state=>{
       return state.todoList.filter(todoItem=>todoItem.isDone)
