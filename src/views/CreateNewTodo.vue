@@ -17,27 +17,24 @@ export default {
       todoItem:{
       todo:"",
       author:"",
-      time: new Date().toLocaleString(),
+      time: new Date().getFullYear() + "/" + new Date().getMonth()+1 +"/" + new Date().getDate(),
+      isDone:false      
       }
     }
   },
   methods:{
-    sendNewItemToTodList(){
-      this.addTodoItem()
-      this.nowTime()
-      console.log(this.time)
-    }, 
-    addTodoItem(){   
+    addTodoItem(){  
+      
       this.$store.commit('addTodoItem',this.todoItem)
       this.$router.push('/')
     },
 
-    nowTime(){
-        let now = new Date()
-        this.time = now.getFullYear() + "/" +now.getMonth() +"/" + now.getDate()+" "+ now.getHours()+":"+ now.getMinutes();
-        console.log(this.time)
-        // return this.time
-   },
+    // nowTime(){
+    //     let now = new Date()
+    //     this.time = new Date().getFullYear() + "/" +new Date().getMonth() +"/" + new Date().getDate()+" "+ new Date().getHours()+":"+ new Date().getMinutes();
+    //     console.log(this.time)
+    //     // return this.time
+  //  },
   }
 }
 </script>
@@ -59,7 +56,7 @@ button{
   width:100px;
 }
 button:hover{
-  background:rgba(128, 128, 128, 0.8)
+  background:rgb(162, 194, 204);
 }
 
 form{
@@ -75,8 +72,7 @@ input[type=text] {
   cursor:pointer;
 }
 input:hover{
-  background: darkgray;
-  opacity: 0.8;
+  background: darkgray; 
 }
 label{
   color:white

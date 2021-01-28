@@ -3,13 +3,13 @@
     <ul>
       <li class="todo-list-container" >
         <div class="todo">
-          <!-- <input type="checkbox" v-model="todoItem.isDone"> -->
-          <!-- <span :class="{done: todoItem.isDone}">{{todoItem.todo}}</span> -->
-          <span>{{todoItem.todo}}</span>
+          <input type="checkbox" v-model="todoItem.isDone" >
+          <span :class="{done: todoItem.isDone}">{{todoItem.todo}}</span>
+          <!-- <span>{{todoItem.todo}}</span> -->
         </div>
-        <div class="sub-disc">
+        <div :class="{done: todoItem.isDone}" class="sub-disc">
           <p>Created by <span class="author">{{todoItem.author}}</span></p> 
-          <time >{{todoItem.time}}</time>
+          <p class="time"><span>{{todoItem.time}}</span></p>
         </div>
         <p @click="removeTodoItem" class="remove-button">X</p>
       </li>        
@@ -24,8 +24,10 @@ export default {
   methods:{
    removeTodoItem(){
        this.$store.commit('removeTodoItem',this.todoItem)
-    }   
+    } ,
+   
   },
+  
 
 }
 </script>
@@ -52,6 +54,12 @@ export default {
     flex-basis: 30%;
     text-align: left;
 }
+.sub-disc >:first-child{
+  margin: 0.5em 0;
+}
+.sub-disc.done >:first-child ,.sub-disc.done >:last-child {
+   text-decoration:line-through;
+}
 .remove-button {
     font:bold;
     align-self: center;
@@ -62,21 +70,18 @@ export default {
 .remove-button:hover{
   cursor:pointer;
 }
-.sub-disc >:first-child{
-  margin: 0.5em 0;
-}
 .todo >span{
   font-size:1.5rem;
   margin-left:1rem;
 }
-/* .todo >span.done{
+.todo >span.done{
   text-decoration:line-through;
   color:rgb(105, 95, 95);
-} */
+}
 .author{
   color:darkblue
 }
-time{
+.time{
   color:black;
   font-size:0.8rem;
 }
