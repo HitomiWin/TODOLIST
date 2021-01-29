@@ -31,52 +31,49 @@ export default {
 </script>
 
 <style scoped>
-.done-list-container{
-  background:rgba(206, 206, 206, 0.726);
-  padding:0.5rem;
-  display:flex;
-  justify-content: space-between;
-  
-}
-.done-list-container:hover{
-  background:rgb(179, 197, 181) 
-}
-.todo{
-  display:flex;
-  justify-content:space-between;
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: 95%;
-  text-align: left;   
-}
-.todo:hover{
-  cursor:pointer;
- 
-}
-.sub-disc{
-  flex-basis: 30%;
-  text-align: left;
-}
-
-.sub-disc >:first-child{
-  margin: 0.5em 0;
-  color:rgb(105, 95, 95);
-  text-decoration:line-through;
-}
-.sub-disc >:last-child {
-  text-decoration:line-through;
-  color:rgb(105, 95, 95);
-
-}
-.todo >span{
-  font-size:1.5rem;
-  margin-left:1rem;
-  text-decoration:line-through;
-  color:rgb(105, 95, 95);
-}
-.author{
-    color:rgb(105, 95, 95);
+  .done-list-container{
+    background:rgba(206, 206, 206, 0.726);
+    padding:0.5rem;
+    display:flex;
+    justify-content: space-between;
+    
+  }
+  .done-list-container:hover{
+    background:rgb(179, 197, 181) 
+  }
+  .todo{
+    display:flex;
+    justify-content:space-between;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 95%;
+    text-align: left;   
+  }
+  .todo:hover{
+    cursor:pointer; 
+  }
+  .sub-disc{
+    flex-basis: 30%;
+    text-align: left;
   }
 
+  .sub-disc >:first-child{
+    margin: 0.5em 0;
+    color:rgb(105, 95, 95);
+    text-decoration:line-through;
+  }
+  .sub-disc >:last-child {
+    text-decoration:line-through;
+    color:rgb(105, 95, 95);
+  }
+  .todo >span{
+    font-size:1.5rem;
+    margin-left:1rem;
+    text-decoration:line-through;
+    color:rgb(105, 95, 95);
+  }
+  .author{
+      color:rgb(105, 95, 95);
+    }
 
 </style>
