@@ -9,36 +9,33 @@ export default new Vuex.Store({
       { 
         todo:"Learn magic",
         author:"Harry Potter",
-        time:"1788/01/28 20:00",
-        
-        
+        time:"1788/01/28 20:00",        
       },
       {
         todo:"Make up with Ron",
         author:"Hermione",
-        time:"1788/01/28 20:00",
-        
+        time:"1788/01/28 20:00",        
       },
       { 
         todo:"Feed the dragon",
         author:"Hagrid",
-        time:"1788/01/28 20:00",
-        
+        time:"1788/01/28 20:00",        
       },
       { 
         todo:"Practice chess",
         author:"Ron",
-        time:"1788/01/28 20:00",
-        
+        time:"1788/01/28 20:00",        
       },
     ],
-    doneList:[]
-    
+
+    doneList:[]   
   },
+
   mutations: { 
     removeTodoItem(state, todoItem){ 
       state.todoList = state.todoList.filter(remain=>remain !== todoItem)
     },
+
     removeDoneItem(state, doneItem){ 
       state.doneList = state.doneList.filter(remain=>remain !== doneItem)
     },
@@ -57,6 +54,7 @@ export default new Vuex.Store({
         return state.todoList
       }
     },
+
     moveDownTodoItem(state,todoItem){
       let i = state.todoList.indexOf(todoItem)
       if(i===state.todoList.length-1){
@@ -73,6 +71,7 @@ export default new Vuex.Store({
       let doneItems = state.todoList.splice(i,1)
       state.doneList.push(doneItems[0])         
     },
+    
     backDone(state,doneItem){    
       let i = state.doneList.indexOf(doneItem)
       let todoItems = state.doneList.splice(i,1)

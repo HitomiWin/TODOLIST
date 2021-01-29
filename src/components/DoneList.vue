@@ -79,13 +79,4 @@ export default {
   }
 
 
-/* @media screen and (max-width: 600px) {
-  .todo{
-  flex-basis: 65%;
-}
-.sub-disc{
-  flex-basis: 30%;
-  text-align: left;
-}
-} */
 </style>

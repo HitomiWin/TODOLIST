@@ -27,11 +27,10 @@ export default {
     doneList(){
     return this.$store.state.doneList
     },
-  },
-
- 
+  }, 
 }
 </script>
+
 <style scoped>
   .home{
     max-width:900px;
@@ -49,11 +48,6 @@ export default {
   }
   .logo-container img{
     width:100%;
-  }
-  button{
-    margin:1rem;
-    padding:0.3rem;
-    width:100px;
   }
 
 </style>

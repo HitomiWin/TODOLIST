@@ -2,6 +2,12 @@
   <div class="create-new-todo">
     <h1>Add New Todo</h1>
     <form  id="app" @submit.prevent="addTodoItem">
+      <p v-if="todoItem.errors.length">
+      <b>Please correct the following error(s):</b>
+      <ul>
+        <li v-for="(error,i) in todoItem.errors" :key="i">{{ todoItem.error }}</li>
+    </ul>
+  </p>
       <label for="todo">Todo</label>
       <input class="todo" id="todo" v-model="todoItem.todo" type="text" name="todo">   
         <label for="author">Author</label>
@@ -15,6 +21,7 @@ export default {
   data(){
     return{
       todoItem:{
+      errors:[],
       todo:null,
       author:null,
       time:"0000/00/00 00:00"   
@@ -22,16 +29,34 @@ export default {
     }
   },
   methods:{
+    checkForm(){
+       if (this.todoItem.todo && this.todoItem.author) {
+        return true;
+      }
+
+      this.todoItem.errors = [];
+
+      if (!this.todoItem.todo) {
+        this.todoItem.errors.push('Todo required.');
+      }
+      if (!this.todoItem.author) {
+        this.todoItem.errors.push('Author required.');
+      }
+   
+    },
     nowTime(){
       let now = new Date()
       return this.todoItem.time = now.getFullYear() + "/" + now.getMonth()+1 +"/" + now.getDate()+ " " + now.getHours()+ " : " + ( '0' + now.getMinutes() ).slice( -2 )       
     },
     addTodoItem(){
-      console.log(this.todoItem)
-      if (this.todoItem.todo===null || this.todoItem.author===null) {
-        alert("Please input both fields")
-        return
-        }
+  
+      // if (this.todoItem.todo===null || this.todoItem.author===null) {
+      //   alert("Please input both fields")
+      //   return
+      //   }
+      if( this.checkForm())
+      
+     
       this.nowTime()
       this.$store.commit('addTodoItem',this.todoItem)
       this.$router.push('/')
