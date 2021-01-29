@@ -7,7 +7,7 @@
       <span @click="moveDownTodoItem" class="arrow">&#8595;</span> 
     </div>  
       <div class="todo" @click="sortDone" >
-        <span>{{todoItem.todo}}</span>         
+        <p><span>{{todoItem.todo}}</span></p>         
         <div class="sub-disc">
         <p>Created by <span class="author">{{todoItem.author}}</span></p> 
         <p class="time"><span>{{todoItem.time}}</span></p>
@@ -51,6 +51,7 @@ export default {
   padding:0.5rem;
   display:flex;
   justify-content: space-between;
+  
 }
 .todo-list-container:hover{
   background:rgb(172, 167, 172); 
@@ -77,9 +78,8 @@ export default {
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: 85%;
-  text-align: left;  
+  text-align: left; 
 }
-
 .sub-disc >:first-child{
   margin: 0.5em 0;
 }
@@ -87,11 +87,37 @@ export default {
   flex-basis: 30%;
   text-align: left;
 }
-.todo >span{
+.todo >p>span{ 
   font-size:1.5rem;
 }
 .author{
   color:darkblue;
   }
+.remove-button:hover{
+  color:red;
+  cursor:pointer;
+}
+.remove-button {
+  font-size: 2rem;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 5%;
+  font:bold;
+  align-self: center;
+  color:darkred;
+  font-family: Verdana, sans-serif;    
+}
+.time{
+  color:black;
+  font-size:0.8rem;
+}  
+
+@media screen and (max-width: 575px){
+  .todo{
+    flex-basis: 65%;
+    flex-direction:column;
+  }
+}
+
 
 </style>

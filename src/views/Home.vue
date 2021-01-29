@@ -10,34 +10,35 @@
     <div v-if="todoList.length===0 && doneList.length===0">
       <h1>Are you ready for battle ?</h1><br>
       <img v-bind:src="image" alt="Dumbledore Image">
-      </div>    
+    </div>    
   </div>
 </template>
+
 <script>
-import dumbledore from "../assets/dumbledore-image.jpg"
-import TodoList from "../components/TodoList"
-import DoneList from "../components/DoneList"
-export default {
-  name: 'Home',
-  data(){
-    return {
-      image:dumbledore,
-    }
-  },
-  components:{
-    TodoList,
-    DoneList
-  },
-  
-  computed:{
-    todoList(){
-    return this.$store.state.todoList
-    },  
-    doneList(){
-    return this.$store.state.doneList
+  import dumbledore from "../assets/dumbledore-image.jpg"
+  import TodoList from "../components/TodoList"
+  import DoneList from "../components/DoneList"
+  export default {
+    name: 'Home',
+    data(){
+      return {
+        image:dumbledore,
+      }
     },
-  }, 
-}
+    components:{
+      TodoList,
+      DoneList
+    },
+    
+    computed:{
+      todoList(){
+      return this.$store.state.todoList
+      },  
+      doneList(){
+      return this.$store.state.doneList
+      },
+    }, 
+  }
 </script>
 
 <style scoped>
@@ -50,13 +51,7 @@ export default {
     margin:2rem;
     color:white
   }
-  .logo-container{
-    margin:1rem auto;
-    width:30%;
 
-  }
-  .logo-container img{
-    width:100%;
-  }
+  
 
 </style>

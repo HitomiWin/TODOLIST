@@ -56,7 +56,6 @@ export default {
     flex-basis: 30%;
     text-align: left;
   }
-
   .sub-disc >:first-child{
     margin: 0.5em 0;
     color:rgb(105, 95, 95);
@@ -74,6 +73,24 @@ export default {
   }
   .author{
       color:rgb(105, 95, 95);
-    }
+  }
+  .remove-button:hover{
+    color:red;
+    cursor:pointer;
+  }
+  .remove-button {
+    font-size: 2rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 5%;
+    font:bold;
+    align-self: center;
+    color:darkred;
+    font-family: Verdana, sans-serif;    
+  }  
+  .time{
+    color:black;
+    font-size:0.8rem;
+  }
 
 </style>
