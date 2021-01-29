@@ -17,14 +17,14 @@ export default {
       todoItem:{
       todo:null,
       author:null,
-      time:" ",   
+      time:"0000/00/00 00:00"   
       }
     }
   },
   methods:{
     nowTime(){
       let now = new Date()
-      return this.todoItem.time = now.getFullYear() + "/" + now.getMonth()+1 +"/" + now.getDate()        
+      return this.todoItem.time = now.getFullYear() + "/" + now.getMonth()+1 +"/" + now.getDate()+ " " + now.getHours()+ " : " + ( '0' + now.getMinutes() ).slice( -2 )       
     },
     addTodoItem(){
       console.log(this.todoItem)
@@ -70,7 +70,7 @@ form{
 input[type=text] {
   padding: 5px;
   margin: 8px 0;
-  width:50vw;
+  width:80%;
   cursor:pointer;
 }
 input:hover{

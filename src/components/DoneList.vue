@@ -1,17 +1,17 @@
 <template>
 <div class="doneList">
-    <ul>
-      <li class="done-list-container" @click="backDone"  >
-        <div class="todo" >  
-          <span>{{doneItem.todo}}</span>
-        </div>
+  <ul>
+    <li class="done-list-container"   >
+      <div class="todo" @click="backDone" >  
+        <span>{{doneItem.todo}}</span>       
         <div class="sub-disc">
           <p>Created by <span class="author">{{doneItem.author}}</span></p> 
           <p class="time"><span>{{doneItem.time}}</span></p>
         </div>
-        <p @click="removeTodoItem" class="remove-button">X</p>
-      </li>        
-    </ul>         
+      </div>
+      <p @click="removeDoneItem" class="remove-button">X</p>
+    </li>        
+  </ul>         
 </div>           
 </template>
 
@@ -19,8 +19,8 @@
 export default {
  props:["doneItem"],
   methods:{
-   removeTodoItem(){
-    this.$store.commit('removeTodoItem',this.doneItem)
+   removeDoneItem(){
+    this.$store.commit('removeDoneItem',this.doneItem)
     } ,  
  
    backDone(){
@@ -39,21 +39,25 @@ export default {
   
 }
 .done-list-container:hover{
-  cursor:pointer;
+  background:rgb(179, 197, 181) 
 }
 .todo{
+  display:flex;
+  justify-content:space-between;
   flex-grow: 0;
   flex-shrink: 0;
-  flex-basis: 65%;
-  text-align: left;  
+  flex-basis: 95%;
+  text-align: left;   
 }
-
+.todo:hover{
+  cursor:pointer;
+ 
+}
 .sub-disc{
-  flex-grow: 0;
-  flex-shrink: 0;
   flex-basis: 30%;
   text-align: left;
 }
+
 .sub-disc >:first-child{
   margin: 0.5em 0;
   color:rgb(105, 95, 95);
@@ -64,27 +68,24 @@ export default {
   color:rgb(105, 95, 95);
 
 }
-.remove-button {
-  font:bold;
-  align-self: center;
-  color:darkred;
-  font-family: Verdana, sans-serif;    
-}
-.remove-button:hover{
-  cursor:pointer;
-}
 .todo >span{
   font-size:1.5rem;
   margin-left:1rem;
   text-decoration:line-through;
   color:rgb(105, 95, 95);
 }
-
 .author{
-  color:rgb(105, 95, 95);
+    color:rgb(105, 95, 95);
+  }
+
+
+/* @media screen and (max-width: 600px) {
+  .todo{
+  flex-basis: 65%;
 }
-.time{
-  color:black;
-  font-size:0.8rem;
+.sub-disc{
+  flex-basis: 30%;
+  text-align: left;
 }
+} */
 </style>

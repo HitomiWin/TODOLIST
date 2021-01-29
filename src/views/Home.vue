@@ -4,7 +4,7 @@
     <div v-if="todoList.length > 0">
       <TodoList v-for="(todoItem, i) in todoList" :key="i"  :todoItem="todoItem"/>
     </div>
-    <div v-if="todoList.length > 0">
+    <div v-if="doneList.length > 0">
       <DoneList v-for="(doneItem, i) in doneList" :key="'A'+ i"  :doneItem="doneItem"/>
     </div>    
   </div>
@@ -22,12 +22,11 @@ export default {
   
   computed:{
     todoList(){
-      return this.$store.state.todoList
-     },  
+    return this.$store.state.todoList
+    },  
     doneList(){
     return this.$store.state.doneList
-     },
-
+    },
   },
 
  
@@ -35,7 +34,7 @@ export default {
 </script>
 <style scoped>
   .home{
-    max-width:700px;
+    max-width:900px;
     margin:auto;
     text-align: center;
   }
