@@ -24,7 +24,7 @@
     font-family: 'Fraunces', serif;
   }
   body{
-    background:url("https://img.wallpapersafari.com/desktop/1920/1080/47/4/kWGX9a.jpg");
+    background:url("assets/david-latorre-romero-3cQ5LDWtAf4-unsplash.jpg");
     background-size: cover;
     max-width:100vw;
     height: 100vh;

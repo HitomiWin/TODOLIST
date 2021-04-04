@@ -9,20 +9,20 @@
     </div>
     <div v-if="todoList.length===0 && doneList.length===0">
       <h1>Are you ready for battle ?</h1><br>
-      <img v-bind:src="image" alt="Dumbledore Image">
+      <img v-bind:src="image" alt="Magick stick Image">
     </div>    
   </div>
 </template>
 
 <script>
-  import dumbledore from "../assets/dumbledore-image.jpg"
+  import stick from "../assets/kenny-gaines-hwcghym9tAs-unsplash(2).jpg"
   import TodoList from "../components/TodoList"
   import DoneList from "../components/DoneList"
   export default {
     name: 'Home',
     data(){
       return {
-        image:dumbledore,
+        image:stick,
       }
     },
     components:{
@@ -48,10 +48,25 @@
     text-align: center;
   }
   h1{
-    margin:2rem;
+    margin:1rem;
     color:white
   }
+  img{
+    max-width:70vw;
+    height:auto;
+  }
 
-  
-
+  @media only screen and (min-width: 600px) {
+  img{
+    max-width:50vw;
+    height:auto;
+  }
+  }
+  @media only screen and (min-width: 900px) {
+  img{
+    max-width:20vw;
+    height:auto;
+  }
+  }
+ 
 </style>

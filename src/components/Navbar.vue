@@ -15,7 +15,8 @@ export default {
 <style scoped>
 .navbar{
   background:lightgray;
-  padding:0.6rem 0 0.6rem
+  padding:0.6rem 0 0.6rem;
+  margin-bottom:2rem;
 }
  a{ color:navy;
   text-decoration: none;
